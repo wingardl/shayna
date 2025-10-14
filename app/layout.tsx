@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { VisualEditing } from 'next-sanity'
-import { draftMode } from 'next/headers'
+import { VisualEditing } from 'next-sanity/visual-editing'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,12 +23,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { isEnabled } = await draftMode()
   return (
     <html lang="en">
       <body>
         {children}
-        {isEnabled && (
+        {(
           <VisualEditing 
             zIndex={99999}
           />
