@@ -1,22 +1,23 @@
 // app/page.tsx
-import { client } from '@/sanity/client'
+import { client, draftClient } from '@/sanity/client'
 import { draftMode } from 'next/headers'
 import ClientApp from '@/components/ClientApp'
 import { aboutQuery, portfolioQuery, resumeQuery } from '@/sanity/queries'
 
 export default async function HomePage() {
-  // Fetch data from Sanity
-  const aboutData = await client.fetch(aboutQuery)
-  const portfolioData = await client.fetch(portfolioQuery)
-  const resumeData = await client.fetch(resumeQuery)
+  const { isEnabled } = await draftMode()
+  const sanityClient = isEnabled ? draftClient : client
 
-  // Structure it like MOCK_DATA
+  // Fetch data from Sanity
+  const aboutData = await sanityClient.fetch(aboutQuery)
+  const portfolioData = await sanityClient.fetch(portfolioQuery)
+  const resumeData = await sanityClient.fetch(resumeQuery)
+
   const initialData = {
     about: aboutData,
     portfolio: portfolioData,
     resume: resumeData,
   }
 
-  // Pass both initial data AND queries to the client component
   return <ClientApp initialData={initialData} />
 }
