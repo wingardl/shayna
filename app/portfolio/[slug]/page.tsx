@@ -3,6 +3,7 @@ import { client } from '@/sanity/client'
 import { groq } from 'next-sanity'
 import { notFound } from 'next/navigation'
 import { PortableText } from '@portabletext/react'
+import Link from 'next/link'
 
 const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
   title,
@@ -26,12 +27,12 @@ export default async function ProjectPage({
   return (
     <div className="min-h-screen bg-[#F0EFEB]">
       <div className="w-full max-w-4xl mx-auto p-8 md:p-12">
-        <a 
+        <Link 
           href="/" 
           className="text-[#588157] hover:text-[#3A5A40] mb-6 inline-block"
         >
           ← Back to Home
-        </a>
+        </Link>
         
         <article className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md overflow-hidden p-8 md:p-12">
           <p className="text-sm text-[#847765] font-semibold mb-2">
