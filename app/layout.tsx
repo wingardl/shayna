@@ -31,7 +31,10 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        {isEnabled && <VisualEditing />}
+        {isEnabled && (
+          <VisualEditing 
+            zIndex={99999}
+          />
       </body>
     </html>
   );

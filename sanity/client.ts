@@ -9,5 +9,24 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false, // `false` if you want to ensure fresh data
+  useCdn: true,
+  perspective: 'published',
+  stega: {
+    enabled: false,
+    studioUrl: 'https://shayna.sanity.studio',
+  },
+})
+
+// Client for draft mode with stega encoding
+export const draftClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+  token: process.env.SANITY_API_TOKEN,
+  perspective: 'previewDrafts',
+  stega: {
+    enabled: true,
+    studioUrl: 'https://shayna.sanity.studio',
+  },
 })
