@@ -27,15 +27,14 @@ export default async function RootLayout({
   const { isEnabled } = await draftMode()
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         {children}
         {isEnabled && (
           <VisualEditing 
             zIndex={99999}
           />
+        )}
       </body>
     </html>
-  );
+  )
 }
