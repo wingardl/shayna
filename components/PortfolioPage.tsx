@@ -1,6 +1,9 @@
 import PortfolioCard from "./PortfolioCard";
 
 function PortfolioPage({ projects }) {
+  // Temporary: log to see what we're getting
+  console.log('Portfolio projects:', projects);
+  
   return (
     <div className="w-full max-w-6xl mx-auto p-8 md:p-12">
       <h1 className="text-5xl font-serif text-slate-800 text-center mb-4">Portfolio</h1>
@@ -8,9 +11,8 @@ function PortfolioPage({ projects }) {
         A collection of projects and collaborations that showcase my passion for building stronger, healthier communities through food and gardening.
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-10">
-        {/* In a real Next.js app, you would fetch this data from Sanity and map over it */}
         {projects.map((project) => (
-          <PortfolioCard key={project.id} project={project} />
+          <PortfolioCard key={project._id} project={project} />
         ))}
       </div>
     </div>
