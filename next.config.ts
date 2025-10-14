@@ -1,4 +1,6 @@
+// next.config.ts
 import type { NextConfig } from 'next';
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
@@ -6,12 +8,8 @@ const nextConfig: NextConfig = {
         source: '/:path*',
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'ALLOW-FROM https://shayna.sanity.studio',
-          },
-          {
             key: 'Content-Security-Policy',
-            value: "frame-ancestors 'self' https://shayna.sanity.studio https://*.sanity.studio",
+            value: "frame-ancestors 'self' https://*.sanity.studio https://*.sanity.io",
           },
         ],
       },
