@@ -1,9 +1,7 @@
 import PortfolioCard from "./PortfolioCard";
 
 function PortfolioPage({ projects }) {
-  // Temporary: log to see what we're getting
-  console.log('Portfolio projects:', projects);
-  
+
   return (
     <div className="w-full max-w-6xl mx-auto p-8 md:p-12">
       <h1 className="text-5xl font-serif text-slate-800 text-center mb-4">Portfolio</h1>

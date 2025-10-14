@@ -50,7 +50,7 @@ export default async function ProjectPage({
             />
           )}
           
-          <div className="prose prose-lg max-w-none">
+          <div className="text-slate-700 text-lg leading-relaxed space-y-4">
             {project.content && <PortableText value={project.content} />}
           </div>
         </article>
