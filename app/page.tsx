@@ -3,6 +3,10 @@ import { client} from '@/sanity/client'
 import ClientApp from '@/components/ClientApp'
 import { aboutQuery, portfolioQuery, resumeQuery } from '@/sanity/queries'
 
+// Force revalidation on every request (no caching)
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
 
   // Fetch data from Sanity
